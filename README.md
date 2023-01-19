@@ -193,6 +193,12 @@ const word = "yo";
 bodlPassage(word, text);
 Expected Output: <p>yo<p>
 <!-- 3 test -->
+Test: "It should return a matching word in a strong tag."
+Code: 
+const word = "hello";
+const text = "hello";
+boldPassage(word, text);
+Expected Output: <p><strong>hello</strong></p>
 
 ## Setup/Installation Requirements
 
