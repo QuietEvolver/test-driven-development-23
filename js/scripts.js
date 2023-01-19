@@ -43,6 +43,8 @@ function wordCounter(text) {
 // }
 
 // Test 5: built-in JavaScript Number() fx returns a number or NaN; if (NaN), we will increment our wordCount
+/*
+// FINAL FXN:(BEOFRE utility logic refactor below)
 function wordCounter(text) {
   if(text.trim().length === 0){
     return 0;
@@ -55,7 +57,7 @@ function wordCounter(text) {
     }
   });
   return wordCount;
-}
+}*/
 
 //Writing and Testing a Second Function for Text Analyzer
 
@@ -282,6 +284,27 @@ function boldPassage(word, text){
     }
   });
   return p;
+}
+
+// UTILITY LOGIG: extract the first conditional we use to check whether the word or text parameters are empty into its own function.
+function isEmpty(testString){
+  return (testString.trim().length === 0);
+}
+
+// REFACTORS OUR CURRENT FUNCTIONS AS SUCH: 
+// fxn1: 
+function wordCounter(text) {
+  if(isEmpty(text)){
+    return 0;
+  }  
+  let wordCount = 0;
+  const textArray = text.split(" ");
+  textArray.forEach(function(element) {
+    if( !Number(element) ){
+      wordCount++;
+    }
+  });
+  return wordCount;
 }
 // UI LOGIC
 
