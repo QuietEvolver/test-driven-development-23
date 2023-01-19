@@ -183,24 +183,23 @@ function wordCounter(text) {
 // ninth test: non-fxnl TIP: https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
 function omitOffence(text, textphrase) {
   const textphraseArray = textphrase.split(" ");
-  const omitArray = [ "zoinks", "muppeteer", "biffaroni", "loopdaloop"];
-  let wordCount = 0; 
+  // const omitArray = [ "zoinks", "muppeteer", "biffaroni", "loopdaloop"];
+  const displayArray = [];
+  // let wordCount = 0; 
+  /*stack ovflw = works.  
   let indexedOmitWord = omitArray.indexOf("zoinks"); // want to pass in every index of omitArray in a loop
   console.log("indexedOmitWord: ", indexedOmitWord);
-
   const index = omitArray.indexOf("zoinks");
-  if (index > -1) { // only splice array when item is found
-    array.splice(index, 2); // 2nd parameter means remove one item only
-  }
-
-  // array = [2, 9]
-  console.log(array);
-  // textphraseArray.forEach(function(element) {
-  //   if (element.toLowerCase().includes(text.toLowerCase())) {
-  //     // const index = 
-  //     wordCount++;
-  //   }
-  // });
-  
-  return wordCount;
-}
+     if((index > -1)) { // only splice array when item is found
+      array.splice(index, 2); // 2nd parameter means remove one item only
+    } 
+    console.log(omitArray);
+  });
+  */    
+  textphraseArray.forEach(function(element) {
+    if (element.toLowerCase().includes(!("zoinks").toLowerCase() || !("muppeteer").toLowerCase() || !("biffaroni").toLowerCase() || !("loopdaloop").toLowerCase()) )
+    { 
+      displayArray.push(element);
+    } else { console.log("No bad words"); }
+  });
+}  
