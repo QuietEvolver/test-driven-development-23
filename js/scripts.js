@@ -211,6 +211,12 @@ function omitOffence(text, textphrase) {
   });
 }  
 
+// Writing and Testing a FOURTH Function to bold a passage()
+function boldPassage(word, text){
+  if((text.trim().length === 0) || (text.trim().length === 0)){  
+    return null;
+  }
+}
 // UI LOGIC
 
 function handleFormSubmission(event){
@@ -222,7 +228,7 @@ function handleFormSubmission(event){
   console.log("psg, wd, wCt, occOfWd: ", passage, word, wordCount, occurrencesOfWord);
   
   document.getElementById("total-count").innterText = wordCount;
-
+  // document.querySelector("span#total-count").innterText = wordCount;
   document.getElementById("selected-count").innerText = occurrencesOfWord;
 }
 
