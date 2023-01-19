@@ -199,6 +199,13 @@ const word = "hello";
 const text = "hello";
 boldPassage(word, text);
 Expected Output: <p><strong>hello</strong></p>
+<!-- 4 test -->
+Test: "It should wrap words that match in strong tags but not words that don't."
+Code: 
+const word = "hello";
+const text = "hello there h ello";
+boldPassage(word, text);
+Expected Output: <p><strong>hello</strong> there h ello</p>
 
 ## Setup/Installation Requirements
 
