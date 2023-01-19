@@ -243,8 +243,46 @@ function omitOffence(text, textphrase) {
   return p;
 }*/
 // text 4: return matching <strong> words, if not return others in <p>
+/*function boldPassage(word, text)  {
+  if((word.trim().length === 0) || (text.trim().length === 0)){
+    return null;
+  }
 
-
+  const p = document.createElement("p");
+  let textArray = text.split(" ");
+  
+  textArray.forEach( (element) => {
+    if (word === element) {
+      const bold = document.createElement("strong");
+      bold.append(element);
+      p.append(bold);
+    } else {
+      p.append(element);
+    }
+    p.append(" ");
+  });
+  return p; 
+}*/
+// FX4:TEST4 CON'T: BUGFIX: adds current index positioing to loop
+function boldPassage(word, text){
+  if((word.trim().length === 0) || (text.trim().length)){
+    return null;
+  }
+  const p = document.createElement("p");
+  let textArray = text.split(" ");
+  textArray.forEach((element, index)=>{
+    if(word === text){
+      const bold = document.createElement("strong");
+      bold.append(element);
+    } else {
+      p.append(element);
+    }
+    if(index !== (textArray.length - 1)){
+      p.append(" ");
+    }
+  });
+  return p;
+}
 // UI LOGIC
 
 function handleFormSubmission(event){
