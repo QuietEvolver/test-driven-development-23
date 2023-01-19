@@ -290,7 +290,8 @@ function boldPassage(word, text){
 
 
 // UTILITY LOGIG: extract the first conditional we use to check whether the word or text parameters are empty into its own function.
-// err handles blank word entry on DOM
+
+// UTILITY HELPER FXN: err handles blank word entry on DOM
 function isEmpty(testString){
   return (testString.trim().length === 0);
 }
@@ -373,6 +374,14 @@ function handleFormSubmission(event){
   document.getElementById("total-count").innterText = wordCount;
   // document.querySelector("span#total-count").innterText = wordCount;
   document.getElementById("selected-count").innerText = occurrencesOfWord;
+
+  //ADDING boldPsg()
+  let boldedPassage = boldPassage(word, passage);
+  if(boldedPassage){
+    document.querySelector("div#bolded-passage").append(boldedPassage);
+  } else {
+    document.querySelector("div#bolded-passage").innerText = null;
+  }
 }
 
 window.addEventListener("load", () => {
