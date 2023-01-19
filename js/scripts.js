@@ -212,11 +212,22 @@ function omitOffence(text, textphrase) {
 }  
 
 // Writing and Testing a FOURTH Function to bold a passage()
-function boldPassage(word, text){
+// passes test one if no txt entered
+/*function boldPassage(word, text){
   if((text.trim().length === 0) || (text.trim().length === 0)){  
     return null;
   }
+}*/
+// test2 if mismached words, return in <p>tag
+function boldPassage(word, text){
+  if((word.trim().length === 0) || (word.trim().length === 0)){
+    return null;
+  }
+  const p = document.createElement("p");
+  p.append(text);
+  return p;
 }
+
 // UI LOGIC
 
 function handleFormSubmission(event){
