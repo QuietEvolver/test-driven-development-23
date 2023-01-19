@@ -267,8 +267,8 @@ function omitOffence(text, textphrase) {
   });
   return p; 
 }*/
-// FX4:TEST4 CON'T: BUGFIX: adds current index positioing to loop
-function boldPassage(word, text){
+///////// FX4:TEST4 CON'T: BUGFIX: adds current index positioing to loop
+/*function boldPassage(word, text){
   if((word.trim().length === 0) || (text.trim().length)){
     return null;
   }
@@ -286,7 +286,7 @@ function boldPassage(word, text){
     }
   });
   return p;
-}
+}*/
 
 
 // UTILITY LOGIG: extract the first conditional we use to check whether the word or text parameters are empty into its own function.
@@ -298,33 +298,63 @@ function isEmpty(testString){
 
 // REFACTORS OUR CURRENT FUNCTIONS AS SUCH: 
 // fxn1: 
+// function wordCounter(text) {
+//   if(isEmpty(text)){
+//     return 0;
+//   }  
+//   let wordCount = 0;
+//   const textArray = text.split(" ");
+//   textArray.forEach(function(element) {
+//     if( !Number(element) ){
+//       wordCount++;
+//     }
+//   });
+//   return wordCount;
+// }
+// // fxn2:
+// function numberOfOccurrencesInText(word, text) {
+//   if(isEmpty(text)){
+//     return 0;
+//   }
+//   const textArray = text.split(" ");
+//   let wordCount = 0;
+//   textArray.forEach(function(element){
+//     if(element.toLowerCase().includes(word.toLowerCase())){
+//       wordCount++;
+//     }
+//   });
+//   return wordCount;
+// }
+
+
 function wordCounter(text) {
-  if(isEmpty(text)){
+  if (isEmpty(text)) {
     return 0;
-  }  
+  }
   let wordCount = 0;
   const textArray = text.split(" ");
   textArray.forEach(function(element) {
-    if( !Number(element) ){
+    if (!Number(element)) {
       wordCount++;
     }
   });
   return wordCount;
 }
-// fxn2:
+
 function numberOfOccurrencesInText(word, text) {
-  if(isEmpty(word)){
+  if (isEmpty(text)) {
     return 0;
   }
   const textArray = text.split(" ");
   let wordCount = 0;
-  textArray.forEach(function(element){
-    if(element.toLowerCase().includes(word.toLowerCase())){
+  textArray.forEach(function(element) {
+    if (element.toLowerCase().includes(word.toLowerCase())) {
       wordCount++;
     }
   });
   return wordCount;
 }
+
 // fxn3: No CHange??
 function omitOffence(text, textphrase) {
   const textphraseArray = textphrase.split(" ");
@@ -341,20 +371,21 @@ function omitOffence(text, textphrase) {
   });
 }
 // fxn4: 
-function boldPassage(word, text){
-  if((isEmpty(word)) || (isEmpty(text))){
+function boldPassage(word, text) {
+  if (isEmpty(word) || isEmpty(text)) {
     return null;
   }
   const p = document.createElement("p");
   let textArray = text.split(" ");
-  textArray.forEach((element, index)=>{
-    if(word === text){
+  textArray.forEach(function(element, index) {
+    if (word === element) {
       const bold = document.createElement("strong");
       bold.append(element);
+      p.append(bold);
     } else {
       p.append(element);
     }
-    if(index !== (textArray.length - 1)){
+    if (index !== (textArray.length - 1)) {
       p.append(" ");
     }
   });
@@ -365,23 +396,22 @@ function boldPassage(word, text){
 
 function handleFormSubmission(event){
   event.preventDefault();
+  event.preventDefault();
   const passage = document.getElementById("text-passage").value;
   const word = document.getElementById("word").value;
   const wordCount = wordCounter(passage);
   const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
-  console.log("psg, wd, wCt, occOfWd: ", passage, word, wordCount, occurrencesOfWord);
-  
-  document.getElementById("total-count").innterText = wordCount;
-  // document.querySelector("span#total-count").innterText = wordCount;
+  document.getElementById("total-count").innerText = wordCount;
   document.getElementById("selected-count").innerText = occurrencesOfWord;
+  console.log("psg, wd, wCt, occOfWd: ", passage, word, wordCount, occurrencesOfWord);
 
   //ADDING boldPsg()
   let boldedPassage = boldPassage(word, passage);
-  if(boldedPassage){
-    document.querySelector("div#bolded-passage").append(boldedPassage);
-  } else {
-    document.querySelector("div#bolded-passage").innerText = null;
-  }
+    if (boldedPassage) {
+      document.querySelector("div#bolded-passage").append(boldedPassage);
+    } else {
+      document.querySelector("div#bolded-passage").innerText = null;
+    }
 }
 
 window.addEventListener("load", () => {

@@ -207,6 +207,14 @@ const text = "hello there h ello";
 boldPassage(word, text);
 Expected Output: <p><strong>hello</strong> there h ello</p>
 
+Describe: countWordsInPassage()
+
+Test: "Write a function that returns how many times each word is used in a passage of text."
+Code: 
+const word = "hello"
+const text = "hello there"
+countWordsInPassage(word, text)
+
 ## Setup/Installation Requirements
 
 * _Open a terminal console on your personal computer_
