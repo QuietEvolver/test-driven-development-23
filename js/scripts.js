@@ -44,7 +44,7 @@ function wordCounter(text) {
 
 // Test 5: built-in JavaScript Number() fx returns a number or NaN; if (NaN), we will increment our wordCount
 /*
-// FINAL FXN:(BEOFRE utility logic refactor below)
+/////////////// FINAL FXN1:(BEOFRE utility logic refactor below)///////////////
 function wordCounter(text) {
   if(text.trim().length === 0){
     return 0;
@@ -100,7 +100,8 @@ function wordCounter(text) {
     return wordCount;
 }
 */
-
+/*
+/////////////// FINAL FXN2:(BEOFRE utility logic refactor below)///////////////
 // .includes(t/f) return a word match regardless of punctuation. 
 function numberOfOccurrencesInText(word, text) {
   // err handles blank word entry on DOM
@@ -115,7 +116,7 @@ function numberOfOccurrencesInText(word, text) {
     }
   });
   return wordCount;
-}
+}*/
 
 // Writing and Testing a THIRD Function to omit offensive words
 
@@ -287,6 +288,7 @@ function boldPassage(word, text){
 }
 
 // UTILITY LOGIG: extract the first conditional we use to check whether the word or text parameters are empty into its own function.
+// err handles blank word entry on DOM
 function isEmpty(testString){
   return (testString.trim().length === 0);
 }
@@ -306,6 +308,22 @@ function wordCounter(text) {
   });
   return wordCount;
 }
+// fxn2:
+function numberOfOccurrencesInText(word, text) {
+  if(isEmpty(word)){
+    return 0;
+  }
+  const textArray = text.split(" ");
+  let wordCount = 0;
+  textArray.forEach(function(element){
+    if(element.toLowerCase().includes(word.toLowerCase())){
+      wordCount++;
+    }
+  });
+  return wordCount;
+}
+
+
 // UI LOGIC
 
 function handleFormSubmission(event){
