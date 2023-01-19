@@ -42,9 +42,9 @@ function wordCounter(text) {
 //   return wordCount;
 // }
 
-// Test 5: built-in JavaScript Number() fx returns a number or NaN; if (NaN), we will increment our wordCount
 /*
 /////////////// FINAL FXN1:(BEOFRE utility logic refactor below)///////////////
+// Test 5: built-in JavaScript Number() fx returns a number or NaN; if (NaN), we will increment our wordCount
 function wordCounter(text) {
   if(text.trim().length === 0){
     return 0;
@@ -186,23 +186,24 @@ function numberOfOccurrencesInText(word, text) {
 /*function omitOffence(textphrase, text) {
   return 1;
 };*/
-
+/*
+/////////////// FINAL FXN3:(BEOFRE utility logic refactor below)///////////////
 // ninth test: non-fxnl TIP: https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
 function omitOffence(text, textphrase) {
   const textphraseArray = textphrase.split(" ");
   // const omitArray = [ "zoinks", "muppeteer", "biffaroni", "loopdaloop"];
   const displayArray = [];
   // let wordCount = 0; 
-  /*stack ovflw = works.  
-  let indexedOmitWord = omitArray.indexOf("zoinks"); // want to pass in every index of omitArray in a loop
-  console.log("indexedOmitWord: ", indexedOmitWord);
-  const index = omitArray.indexOf("zoinks");
-     if((index > -1)) { // only splice array when item is found
-      array.splice(index, 2); // 2nd parameter means remove one item only
-    } 
-    console.log(omitArray);
-  });
-  */    
+  // stack ovflw = works.  
+  // let indexedOmitWord = omitArray.indexOf("zoinks"); // want to pass in every index of omitArray in a loop
+  // console.log("indexedOmitWord: ", indexedOmitWord);
+  // const index = omitArray.indexOf("zoinks");
+  //    if((index > -1)) { // only splice array when item is found
+  //     array.splice(index, 2); // 2nd parameter means remove one item only
+  //   } 
+  //   console.log(omitArray);
+  //});
+    
   textphraseArray.forEach(function(element) {
     if (element.toLowerCase().includes(!("zoinks").toLowerCase() || !("muppeteer").toLowerCase() || !("biffaroni").toLowerCase() || !("loopdaloop").toLowerCase()) )
     { 
@@ -212,7 +213,7 @@ function omitOffence(text, textphrase) {
     console.log("Display arr: ", displayArray);
     return displayArray.join();
   });
-}  
+} */  
 
 // Writing and Testing a FOURTH Function to bold a passage()
 // passes test one if no txt entered
@@ -287,6 +288,7 @@ function boldPassage(word, text){
   return p;
 }
 
+
 // UTILITY LOGIG: extract the first conditional we use to check whether the word or text parameters are empty into its own function.
 // err handles blank word entry on DOM
 function isEmpty(testString){
@@ -322,7 +324,41 @@ function numberOfOccurrencesInText(word, text) {
   });
   return wordCount;
 }
+// fxn3: No CHange??
+function omitOffence(text, textphrase) {
+  const textphraseArray = textphrase.split(" ");
+  const displayArray = [];
 
+  textphraseArray.forEach(function(element) {
+    if (element.toLowerCase().includes(!("zoinks").toLowerCase() || !("muppeteer").toLowerCase() || !("biffaroni").toLowerCase() || !("loopdaloop").toLowerCase()) )
+    { 
+      displayArray.push(element);
+    } else { console.log("No bad words"); }
+
+    console.log("Display arr: ", displayArray);
+    return displayArray.join();
+  });
+}
+// fxn4: 
+function boldPassage(word, text){
+  if((isEmpty(word)) || (isEmpty(text))){
+    return null;
+  }
+  const p = document.createElement("p");
+  let textArray = text.split(" ");
+  textArray.forEach((element, index)=>{
+    if(word === text){
+      const bold = document.createElement("strong");
+      bold.append(element);
+    } else {
+      p.append(element);
+    }
+    if(index !== (textArray.length - 1)){
+      p.append(" ");
+    }
+  });
+  return p;
+}
 
 // UI LOGIC
 
