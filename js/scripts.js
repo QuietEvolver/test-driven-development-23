@@ -228,7 +228,7 @@ function omitOffence(text, textphrase) {
   return p;
 }*/
 // test 3: return matching words in <strong>tag
-function boldPassage(word, text){
+/*function boldPassage(word, text){
   if((word.trim().length === 0) || (text.trim().length === 0)){
     return null;
   }
@@ -241,7 +241,9 @@ function boldPassage(word, text){
     p.append(text);
   }
   return p;
-}
+}*/
+// text 4: return matching <strong> words, if not return others in <p>
+
 
 // UI LOGIC
 
