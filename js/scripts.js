@@ -219,12 +219,27 @@ function omitOffence(text, textphrase) {
   }
 }*/
 // test2 if mismached words, return in <p>tag
-function boldPassage(word, text){
+/*function boldPassage(word, text){
   if((word.trim().length === 0) || (word.trim().length === 0)){
     return null;
   }
   const p = document.createElement("p");
   p.append(text);
+  return p;
+}*/
+// test 3: return matching words in <strong>tag
+function boldPassage(word, text){
+  if((word.trim().length === 0) || (text.trim().length === 0)){
+    return null;
+  }
+  const p  = document.createElement("p");
+  if(word === text){
+    const bold = document.createElement("strong");
+    bold.append(text);
+    p.append(bold);
+  } else {
+    p.append(text);
+  }
   return p;
 }
 
