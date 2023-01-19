@@ -101,6 +101,10 @@ function wordCounter(text) {
 
 // .includes(t/f) return a word match regardless of punctuation. 
 function numberOfOccurrencesInText(word, text) {
+  // err handles blank word entry on DOM
+  if(word.trim().length === 0){
+    return 0;
+  }
   const textArray = text.split(" ");
   let wordCount = 0;
   textArray.forEach(function(element){
