@@ -43,19 +43,19 @@ function wordCounter(text) {
 // }
 
 // Test 5: built-in JavaScript Number() fx returns a number or NaN; if (NaN), we will increment our wordCount
-// function wordCounter(text) {
-//   if(text.trim().length === 0){
-//     return 0;
-//   }  
-//   let wordCount = 0;
-//   const textArray = text.split(" ");
-//   textArray.forEach(function(element) {
-//     if( !Number(element) ){
-//       wordCount++;
-//     }
-//   });
-//   return wordCount;
-// }
+function wordCounter(text) {
+  if(text.trim().length === 0){
+    return 0;
+  }  
+  let wordCount = 0;
+  const textArray = text.split(" ");
+  textArray.forEach(function(element) {
+    if( !Number(element) ){
+      wordCount++;
+    }
+  });
+  return wordCount;
+}
 
 //Writing and Testing a Second Function for Text Analyzer
 
@@ -100,18 +100,18 @@ function wordCounter(text) {
 */
 
 // .includes(t/f) return a word match regardless of punctuation. 
-// function numberOfOccurrencesInText(word, text) {
-//   const textArray = text.split(" ");
-//   let wordCount = 0;
-//   textArray.forEach(function(element){
-//     if(element.toLowerCase().includes(word.toLowerCase())){
-//       wordCount++;
-//     }
-//   });
-//   return wordCount;
-// }
+function numberOfOccurrencesInText(word, text) {
+  const textArray = text.split(" ");
+  let wordCount = 0;
+  textArray.forEach(function(element){
+    if(element.toLowerCase().includes(word.toLowerCase())){
+      wordCount++;
+    }
+  });
+  return wordCount;
+}
 
-// Writing and Testing a Second Function to omit offensive words
+// Writing and Testing a THIRD Function to omit offensive words
 
 // Test 1//
 /* function omitOffence (text) {
@@ -212,10 +212,12 @@ function omitOffence(text, textphrase) {
 function handleFormSubmission(event){
   event.preventDefault();
   const passage = document.getElementById("text-passage").value;
+  console.log("psg, wd, wCt, occOfWd: ", passage);
   const word = document.getElementById("word").value;
+  console.log("psg, wd, wCt, occOfWd: ", passage, word);
   const wordCount = wordCounter(passage);
-  const occurrencesOfWord = numberOfOccurencesInText(word, passage);
-
+  const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
+console.log("psg, wd, wCt, occOfWd: ", passage, word, wordCount, occurrencesOfWord);
   document.getElementById("total-count").innterText = wordCount;
   document.getElementById("selected-count").innerText = occurrencesOfWord;
 }
