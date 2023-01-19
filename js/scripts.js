@@ -201,5 +201,8 @@ function omitOffence(text, textphrase) {
     { 
       displayArray.push(element);
     } else { console.log("No bad words"); }
+    
+    console.log("Display arr: ", displayArray);
+    return displayArray.join();
   });
 }  
