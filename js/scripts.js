@@ -212,13 +212,13 @@ function omitOffence(text, textphrase) {
 function handleFormSubmission(event){
   event.preventDefault();
   const passage = document.getElementById("text-passage").value;
-  console.log("psg, wd, wCt, occOfWd: ", passage);
   const word = document.getElementById("word").value;
-  console.log("psg, wd, wCt, occOfWd: ", passage, word);
   const wordCount = wordCounter(passage);
   const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
-console.log("psg, wd, wCt, occOfWd: ", passage, word, wordCount, occurrencesOfWord);
+  console.log("psg, wd, wCt, occOfWd: ", passage, word, wordCount, occurrencesOfWord);
+  
   document.getElementById("total-count").innterText = wordCount;
+
   document.getElementById("selected-count").innerText = occurrencesOfWord;
 }
 
