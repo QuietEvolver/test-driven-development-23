@@ -201,8 +201,26 @@ function omitOffence(text, textphrase) {
     { 
       displayArray.push(element);
     } else { console.log("No bad words"); }
-    
+
     console.log("Display arr: ", displayArray);
     return displayArray.join();
   });
 }  
+
+// UI LOGIC
+
+function handleFormSubmission(event){
+  event.preventDefault();
+  const passage = document.getElementById("text-passage").value;
+  const word = document.getElementById("word").value;
+  const wordCount = wordCounter(passage);
+  const occurrencesOfWord = numberOfOccurencesInText(word, passage);
+
+  document.getElementById("total-count").innterText = wordCount;
+  document.getElementById("selected-count").innerText = occurrencesOfWord;
+}
+
+window.addEventListener("load", () => {
+  let form = document.querySelector("form#word-counter");
+  form.addEventListener("submit", handleFormSubmission);
+});
