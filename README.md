@@ -175,7 +175,16 @@ const text = "zoinks";
 omitOffence(text, textphrase);
 Expected Output: 0
 
+**Writing and Testing a FOURTH Function to bold a passagr()**
 
+Describe: boldPassage()
+
+Test: "It should return null if no word or text is entered."
+Code: 
+const text = "";
+const word = "";
+bodlPassage(word, text);
+Expected Output: null
 
 ## Setup/Installation Requirements
 
