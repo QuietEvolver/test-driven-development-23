@@ -178,13 +178,21 @@ Expected Output: 0
 **Writing and Testing a FOURTH Function to bold a passagr()**
 
 Describe: boldPassage()
-
+<!-- 1 test -->
 Test: "It should return null if no word or text is entered."
 Code: 
 const text = "";
 const word = "";
 bodlPassage(word, text);
 Expected Output: null
+<!-- 2 test -->
+Test: "It should return a non-matching word in a p-tag."
+Code: 
+const text = "hello";
+const word = "yo";
+bodlPassage(word, text);
+Expected Output: <p>yo<p>
+<!-- 3 test -->
 
 ## Setup/Installation Requirements
 
